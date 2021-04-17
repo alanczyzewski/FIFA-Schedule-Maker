@@ -1,2 +1,5 @@
-# FIFA-Schedule-Maker
-FIFA Tournament Schedule Maker
+# FIFA Tournament Schedule Maker
+## Technologies:
+* JavaScript
+* HTML, CSS
+* Bootstrap
