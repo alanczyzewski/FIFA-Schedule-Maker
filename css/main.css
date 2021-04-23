@@ -37,13 +37,13 @@ table .w-20 {
 }
 
 
-a.menu {
+a.menu-item {
     background-color: #91a33b !important;
 	text-decoration: none;
 	display: block;
 }
 
-a.menu:hover {
+a.menu-item:hover {
     background-color: #75832f !important;
 }
 

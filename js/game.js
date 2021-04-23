@@ -1,4 +1,11 @@
-function startGame(gameMode) {
+function startGame() {
+
+    if (this.id === "btnStartLeague"){
+        gameMode = gameModes.LEAGUE;
+    } else {
+        gameMode = gameModes.TOURNAMENT;
+    }
+    
     if (players.length < 3) {
         message = document.getElementById("numberPlayersMessage");
         message.innerHTML = "Number of players must be at least 3";
@@ -35,6 +42,17 @@ function startGame(gameMode) {
 function resetGame() {
     document.getElementById("divPlayAgain").style.display = "none";
     changeTab(0);
+}
+
+function addResult() {
+    var goals1 = Math.floor(document.getElementById("resultP1").value);
+    var goals2 = Math.floor(document.getElementById("resultP2").value);
+    game.addResult(goals1, goals2);
+    
+    showCurrentMatch();
+    
+    updateTable();
+    updateSchedule();
 }
 
 function Match() {
@@ -112,17 +130,6 @@ function Game(players, mode, numberMatches) {
     this.createAgenda();
 }
 
-function addResult() {
-    var goals1 = Math.floor(document.getElementById("resultP1").value);
-    var goals2 = Math.floor(document.getElementById("resultP2").value);
-    game.addResult(goals1, goals2);
-    
-    showCurrentMatch();
-    
-    updateTable();
-    updateSchedule();
-}
-
 const gameModes = {
     LEAGUE: 0,
     TOURNAMENT: 1
@@ -142,8 +149,6 @@ const tournamentPhases = {
     FINAL: 0
 };
 
-game = undefined;
-
 /*
 let matchType = tournamentPhases.ROUND_OF_64;
 
@@ -160,4 +165,11 @@ switch(matchType) {
 
 matchType -= 1;
 */
+
+game = undefined;
+
+document.querySelector("#btnStartLeague").addEventListener('click',startGame);
+document.querySelector("#btnStartTournament").addEventListener('click',startGame);
+document.querySelector("#btnResetGame").addEventListener('click',resetGame);
+document.querySelector("#btnAddResult").addEventListener('click',addResult);
 

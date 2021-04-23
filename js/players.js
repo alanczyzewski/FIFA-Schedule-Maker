@@ -90,3 +90,6 @@ function Player(name, team) {
 
 players = [];
 
+document.querySelector("#btnAddPlayer").addEventListener('click',addTeam);
+document.querySelector("#btnResetPlayers").addEventListener('click',resetTeams);
+

@@ -144,8 +144,8 @@ function updateSchedule() {
 
     // clear list
     var childrenCount = mySchedule.childNodes.length;
-    while(--childrenCount)
-        mySchedule.removeChild(mySchedule.childNodes[childrenCount]);
+    while(childrenCount)
+        mySchedule.removeChild(mySchedule.childNodes[--childrenCount]);
     
     for (var i in matches) {
         var btn = document.createElement("button");
